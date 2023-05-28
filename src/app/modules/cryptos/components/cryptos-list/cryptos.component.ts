@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CachingService } from '../caching.service';
+import { CryptosService } from '../../../../services/cryptos.service';
 
 export interface Crypto {
   id: string;
@@ -20,13 +20,11 @@ export class CryptosComponent implements OnInit {
   cryptos: Crypto[] = [];
   displayedColumns: string[] = ['icon', 'id', 'name', 'price', 'marketCap'];
 
-  constructor(private cachingService: CachingService) {}
+  constructor(private cryptosService: CryptosService) {}
 
-  ngOnInit() {
-    this.cachingService
-      .get('https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd')
-      .subscribe((data: Crypto[]) => {
-        this.cryptos = data;
-      });
+  ngOnInit(): void {
+    this.cryptosService.getCryptos().subscribe((cryptos) => {
+      this.cryptos = cryptos; // assign the result to your cryptos variable
+    });
   }
 }

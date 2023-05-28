@@ -1,0 +1,30 @@
+<div class="loading" *ngIf="!crypto">
+  <p>Loading...</p>
+</div>
+
+<div class="container" *ngIf="crypto">
+  <h2>{{ crypto.name }}</h2>
+  <img [src]="crypto.image.large" alt="{{ crypto.name }} icon">
+
+  <h3>Market Data:</h3>
+  <p>Current Price: {{ crypto.market_data.current_price.usd }} USD</p>
+  <p>Market Cap: {{ crypto.market_data.market_cap.usd }} USD</p>
+  <p>Total Volume: {{ crypto.market_data.total_volume.usd }} USD</p>
+
+  <h3>Other Info:</h3>
+  <p>Symbol: {{ crypto.symbol }}</p>
+  <p>Rank: {{ crypto.coingecko_rank }}</p>
+  <p>Last Updated: {{ crypto.last_updated }}</p>
+
+  <div style="display: block;">
+    <canvas baseChart
+            [datasets]="lineChartData"
+            [labels]="lineChartLabels"
+            [options]="lineChartOptions"
+            [legend]="lineChartLegend"
+            type="line"
+            [plugins]="lineChartPlugins">
+    </canvas>
+  </div>
+
+</div>

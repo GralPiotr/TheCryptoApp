@@ -26,7 +26,7 @@
     <ng-container matColumnDef="name">
       <th mat-header-cell *matHeaderCellDef> Name</th>
       <td mat-cell *matCellDef="let crypto">
-        <div class="cell-content">{{ crypto.name }}</div>
+        <div class="cell-content"><a [routerLink]="['/crypto-details', crypto.id]">{{crypto.name}}</a></div>
       </td>
     </ng-container>
 

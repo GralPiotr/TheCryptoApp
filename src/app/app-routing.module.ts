@@ -3,13 +3,17 @@ import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
   {
-    path: 'crypto-details',
+    path: 'crypto-details/:id',
     loadChildren: () =>
-      import('./crypto-details/crypto-details.module').then(
+      import('./modules/crypto-details/crypto-details.module').then(
         (m) => m.CryptoDetailsModule
       ),
   },
-  { path: 'cryptos', loadChildren: () => import('./cryptos/cryptos.module').then(m => m.CryptosModule) },
+  {
+    path: 'cryptos',
+    loadChildren: () =>
+      import('./modules/cryptos/cryptos.module').then((m) => m.CryptosModule),
+  },
 ];
 
 @NgModule({

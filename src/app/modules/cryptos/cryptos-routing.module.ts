@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { CryptosComponent } from './cryptos.component';
+import { CryptosComponent } from './components/cryptos-list/cryptos.component';
 
 const routes: Routes = [{ path: '', component: CryptosComponent }];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class CryptosRoutingModule { }
+export class CryptosRoutingModule {}
