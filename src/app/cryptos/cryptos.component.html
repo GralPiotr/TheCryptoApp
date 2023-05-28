@@ -1,0 +1,49 @@
+<h2>Top Cryptocurrencies</h2>
+
+<div class="mat-elevation-z8">
+  <mat-table [dataSource]="cryptos" class="mat-elevation-z8">
+
+
+    <!-- Icon Column -->
+    <ng-container matColumnDef="icon">
+      <th mat-header-cell *matHeaderCellDef> Icon</th>
+      <td mat-cell *matCellDef="let crypto">
+        <div class="cell-content">
+          <img [src]="crypto.image" alt="{{ crypto.name }}" height="30">
+          <!-- Rest of your cell content -->
+        </div>
+      </td>
+    </ng-container>
+    <!-- ID Column -->
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef> ID</th>
+      <td mat-cell *matCellDef="let crypto">
+        <div class="cell-content">{{ crypto.id }}</div>
+      </td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef> Name</th>
+      <td mat-cell *matCellDef="let crypto">
+        <div class="cell-content">{{ crypto.name }}</div>
+      </td>
+    </ng-container>
+
+
+    <!-- Price Column -->
+    <ng-container matColumnDef="price">
+      <th mat-header-cell *matHeaderCellDef> Current Price</th>
+      <td mat-cell *matCellDef="let crypto"> ${{crypto.current_price}} </td>
+    </ng-container>
+
+    <!-- Market Cap Column -->
+    <ng-container matColumnDef="marketCap">
+      <th mat-header-cell *matHeaderCellDef> Market Cap</th>
+      <td mat-cell *matCellDef="let crypto"> ${{crypto.market_cap}} </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </mat-table>
+</div>

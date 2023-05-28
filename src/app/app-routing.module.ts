@@ -9,6 +9,7 @@ const routes: Routes = [
         (m) => m.CryptoDetailsModule
       ),
   },
+  { path: 'cryptos', loadChildren: () => import('./cryptos/cryptos.module').then(m => m.CryptosModule) },
 ];
 
 @NgModule({

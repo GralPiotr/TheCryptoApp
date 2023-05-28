@@ -1,0 +1,39 @@
+//table {
+//  width: 100%;
+//  margin: 0 auto;
+//}
+//
+//th.mat-header-cell, td.mat-cell {
+//  display: flex;
+//  justify-content: center;
+//}
+
+:host {
+  display: flex;
+  justify-content: center;
+}
+
+.mat-elevation-z8 {
+  max-width: 800px;
+  width: 100%;
+  margin: 0 auto;
+}
+.mat-mdc-row {
+  vertical-align: middle;
+  height: 60px; /* If you have set a specific height for your rows, you can keep this */
+}
+
+.mat-mdc-cell {
+  /* Remove these rules */
+}
+
+.mat-mdc-cell img {
+  display: block;
+  margin: auto;
+}
+.cell-content {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Remove this if you want left alignment */
+}
