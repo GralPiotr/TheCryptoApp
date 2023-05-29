@@ -22,9 +22,7 @@ let config: SocialAuthServiceConfig = {
   providers: [
     {
       id: GoogleLoginProvider.PROVIDER_ID,
-      provider: new GoogleLoginProvider(
-        '502533947421-9a31i7f1ki1vk2qgslumt29vkbhc9n04.apps.googleusercontent.com'
-      ),
+      provider: new GoogleLoginProvider(''),
     },
   ],
 };
