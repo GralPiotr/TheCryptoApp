@@ -2,8 +2,10 @@
   <mat-sidenav #drawer class="sidenav" mode="over">
     <mat-nav-list>
       <a mat-list-item routerLink="/" routerLinkActive="active-link" (click)="drawer.close()">Home</a>
-      <a mat-list-item routerLink="/crypto-details" routerLinkActive="active-link" (click)="drawer.close()">Crypto Details</a>
       <a mat-list-item routerLink="/cryptos" routerLinkActive="active-link" (click)="drawer.close()">Top Cryptocurrencies</a>
+      <a mat-list-item routerLink="/login" routerLinkActive="active-link" (click)="drawer.close()">Home</a>
+      <app-google-signin></app-google-signin>
+
     </mat-nav-list>
   </mat-sidenav>
 
@@ -12,7 +14,17 @@
       <button mat-icon-button (click)="drawer.toggle()">
         <mat-icon>menu</mat-icon>
       </button>
-      <span>The Crypto App</span>
+      <span class="title">The Crypto App</span>
+      <div *ngIf="!user">
+        <button mat-button >
+          <mat-icon><a mat-list-item routerLink="/login" routerLinkActive="active-link">Login</a></mat-icon>
+        </button>
+      </div>
+      <div *ngIf="user"class="user">
+        <span>Welcome, {{ user.name }}!</span>
+        <!-- You can also display the user's photo -->
+        <img [src]="user.photoUrl" class="small-user" alt="User's Photo" (click)="signOut()">
+      </div>
     </mat-toolbar>
 
     <router-outlet></router-outlet>

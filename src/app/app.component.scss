@@ -22,3 +22,18 @@
 .active-link {
   font-weight: bold;
 }
+.user{
+  span{
+    display: inline-block;
+    vertical-align: text-bottom;
+  }
+  font-size: 15px;
+  .small-user{
+    padding-left: 10px;
+    height: 35px;
+  }
+}
+
+.title{
+width: 87%;
+}

@@ -10,9 +10,27 @@ import { AppRoutingModule } from './app-routing.module';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import { HttpClientModule } from '@angular/common/http';
+import { GoogleSigninComponent } from './google-signin/google-signin.component';
+import {
+  SocialLoginModule,
+  SocialAuthServiceConfig,
+} from '@abacritt/angularx-social-login';
+import { GoogleLoginProvider } from '@abacritt/angularx-social-login';
+import { LoginComponent } from './login/login.component';
+
+let config: SocialAuthServiceConfig = {
+  providers: [
+    {
+      id: GoogleLoginProvider.PROVIDER_ID,
+      provider: new GoogleLoginProvider(
+        '502533947421-9a31i7f1ki1vk2qgslumt29vkbhc9n04.apps.googleusercontent.com'
+      ),
+    },
+  ],
+};
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, GoogleSigninComponent, LoginComponent],
   imports: [
     BrowserModule,
     HttpClientModule,
@@ -24,7 +42,12 @@ import { HttpClientModule } from '@angular/common/http';
     MatListModule,
     AppRoutingModule,
   ],
-  providers: [],
+  providers: [
+    {
+      provide: 'SocialAuthServiceConfig',
+      useValue: config,
+    },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
